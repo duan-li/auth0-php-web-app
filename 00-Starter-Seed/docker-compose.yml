@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+   
+    composer:
+        image: dockercraft/composer
+        container_name: php-composer
+        entrypoint:
+            - composer
+        command: "-v"
+        working_dir: "/var/www"
+        volumes:
+            - .:/var/www
+         
+
+    server:
+        image: dockercraft/composer
+        container_name: php-server
+        entrypoint:
+            - php
+        command: "-S 0.0.0.0:8181 -t /var/www"
+        working_dir: "/var/www"
+        volumes:
+            - .:/var/www
+        ports:
+            - 8181:8181
