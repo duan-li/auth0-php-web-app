@@ -7,6 +7,8 @@
 
   use Auth0\SDK\Auth0;
 
+  \Firebase\JWT\JWT::$leeway = 5;
+
   $domain        = getenv('AUTH0_DOMAIN');
   $client_id     = getenv('AUTH0_CLIENT_ID');
   $client_secret = getenv('AUTH0_CLIENT_SECRET');
